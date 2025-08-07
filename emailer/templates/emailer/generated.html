@@ -1,0 +1,14 @@
+
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'emailer/styles.css' %}">
+
+<form method="post" action="/send/">
+  {% csrf_token %}
+  <input type="hidden" name="recipients" value="{{ form.recipients.value }}">
+
+  <label for="generated_email"><strong>Generated Email (editable):</strong></label>
+  <textarea name="generated_email" rows="10">{{ email_content }}</textarea>
+
+  <button type="submit">Send Email</button>
+</form>

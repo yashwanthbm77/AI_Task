@@ -1,0 +1,11 @@
+<form method="post">
+  {% csrf_token %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'emailer/styles.css' %}">
+
+  {{ form.as_p }}
+  <button type="submit">Generate Email</button>
+  {% if message %}
+    <p>{{ message }}</p>
+  {% endif %}
+</form>
